@@ -23,13 +23,13 @@
 ## 3. Technical Evidence (Group)
 
 ### 3.1 Logging & Tracing
-- [EVIDENCE_CORRELATION_ID_SCREENSHOT]: [Path to image]
-- [EVIDENCE_PII_REDACTION_SCREENSHOT]: [Path to image]
-- [EVIDENCE_TRACE_WATERFALL_SCREENSHOT]: [Path to image]
-- [TRACE_WATERFALL_EXPLANATION]: (Briefly explain one interesting span in your trace)
+- [EVIDENCE_CORRELATION_ID_SCREENSHOT]: ![EVIDENCE_CORRELATION_ID_SCREENSHOT](image/EVIDENCE_CORRELATION_ID_SCREENSHOT.jpg)
+- [EVIDENCE_PII_REDACTION_SCREENSHOT]: ![EVIDENCE_PII_REDACTION_SCREENSHOT](image/EVIDENCE_PII_REDACTION_SCREENSHOT.jpg)
+- [EVIDENCE_TRACE_WATERFALL_SCREENSHOT]: ![EVIDENCE_TRACE_WATERFALL_SCREENSHOT](image/EVIDENCE_TRACE_WATERFALL_SCREENSHOT.jpg)
+- [TRACE_WATERFALL_EXPLANATION]: Span rag_retrieve chạy trước và hoàn thành gần như tức thì (<1ms), tiếp theo generate mất ~150ms — cho thấy bottleneck nằm ở tầng LLM generation, không phải retrieval. Tổng trace run là 0.15s, nằm trong ngưỡng SLO 3000ms.
 
 ### 3.2 Dashboard & SLOs
-- [DASHBOARD_6_PANELS_SCREENSHOT]: [Path to image]
+- [DASHBOARD_6_PANELS_SCREENSHOT]: ![_6_PANELS_SCREENSHOT](image/6_panels.png)
 - [SLO_TABLE]:
 | SLI | Target | Window | Current Value |
 |---|---:|---|---:|
@@ -38,7 +38,7 @@
 | Cost Budget | < $2.5/day | 1d | |
 
 ### 3.3 Alerts & Runbook
-- [ALERT_RULES_SCREENSHOT]: [Path to image]
+- [ALERT_RULES_SCREENSHOT]: ![ALERT_RULES_SCREENSHOT](image/Alert_rule_screenshot.jpg)
 - [SAMPLE_RUNBOOK_LINK]: [docs/alerts.md#L...]
 
 ---
