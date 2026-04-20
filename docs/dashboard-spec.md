@@ -12,16 +12,16 @@ Cấu trúc phản hồi (từ `app/metrics.py` → `snapshot()`):
 
 ```json
 {
-  "traffic": 42,
-  "latency_p50": 160.0,
-  "latency_p95": 290.0,
-  "latency_p99": 510.0,
-  "avg_cost_usd": 0.0012,
-  "total_cost_usd": 0.0504,
-  "tokens_in_total": 3200,
-  "tokens_out_total": 5400,
-  "error_breakdown": { "ValueError": 2 },
-  "quality_avg": 0.81
+  "traffic": 10,
+  "latency_p50": 152,
+  "latency_p95": 152,
+  "latency_p99": 152,
+  "avg_cost_usd": 0.002,
+  "total_cost_usd": 0.0204,
+  "tokens_in_total": 340,
+  "tokens_out_total": 1289,
+  "error_breakdown": {},
+  "quality_avg": 0.88
 }
 ```
 
