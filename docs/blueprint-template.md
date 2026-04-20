@@ -3,14 +3,13 @@
 > **Instruction**: Fill in all sections below. This report is designed to be parsed by an automated grading assistant. Ensure all tags (e.g., `[GROUP_NAME]`) are preserved.
 
 ## 1. Team Metadata
-- [GROUP_NAME]: 
-- [REPO_URL]: 
+- [GROUP_NAME]: VINNO
+- [REPO_URL]: https://github.com/hungcongit1k67/Vinno_Day13
 - [MEMBERS]:
-  - Member A: [Name] | Role: Logging & PII
-  - Member B: [Name] | Role: Tracing & Enrichment
-  - Member C: [Name] | Role: SLO & Alerts
-  - Member D: [Name] | Role: Load Test & Dashboard
-  - Member E: [Name] | Role: Demo & Report
+  - Member A: Chu Thành Thông  | Role: Logging & PII
+  - Member B: Bùi Đức Tiến | Role: Tracing & Enrichment
+  - Member C: Phùng Hữu Phú | Role: SLO & Alerts
+  - Member D: Nguyễn Công Hùng | Role: Load Test & Dashboard & Demo & Report
 
 ---
 
