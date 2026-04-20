@@ -28,8 +28,8 @@ This template is intentionally incomplete. Teams are expected to finish TODOs du
 ## Quick start
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
+python -m venv .venv (VD: python -m venv day13)
+source .venv/bin/activate (VD: day13\Scripts\activate)
 pip install -r requirements.txt
 cp .env.example .env
 uvicorn app.main:app --reload
@@ -52,38 +52,41 @@ python scripts/validate_logs.py
 
 ```text
 app/
-  main.py                FastAPI app
-  agent.py               core agent pipeline
-  logging_config.py      structlog config
-  middleware.py          correlation ID middleware
-  pii.py                 scrubbing helpers
-  tracing.py             Langfuse helpers
-  schemas.py             request/response/log models
-  metrics.py             in-memory metrics helpers
-  incidents.py           toggles for injected failures
-  mock_llm.py            deterministic fake LLM
-  mock_rag.py            deterministic fake retrieval
+  main.py                Ứng dụng FastAPI chính
+  agent.py               Pipeline agent cốt lõi
+  logging_config.py      Cấu hình structlog
+  middleware.py          Middleware correlation ID
+  pii.py                 Các hàm hỗ trợ che/lọc dữ liệu nhạy cảm
+  tracing.py             Các hàm hỗ trợ Langfuse
+  schemas.py             Các model cho request/response/log
+  metrics.py             Các hàm hỗ trợ metrics lưu trong bộ nhớ
+  incidents.py           Các công tắc bật/tắt lỗi được chèn vào để mô phỏng sự cố
+  mock_llm.py            LLM giả lập có đầu ra xác định trước
+  mock_rag.py            Bộ truy xuất giả lập có đầu ra xác định trước
+
 config/
-  slo.yaml               starter SLOs
-  alert_rules.yaml       starter alerts
-  logging_schema.json    expected log schema
+  slo.yaml               Các SLO mẫu khởi đầu
+  alert_rules.yaml       Các rule cảnh báo mẫu khởi đầu
+  logging_schema.json    Schema log mong đợi
+
 scripts/
-  load_test.py           generate requests
-  inject_incident.py     flip incident toggles
-  validate_logs.py       schema checks for logs
+  load_test.py           Tạo request để test tải
+  inject_incident.py     Bật/tắt các tình huống sự cố mô phỏng
+  validate_logs.py       Kiểm tra schema của log
+
 data/
-  sample_queries.jsonl   requests for testing
-  expected_answers.jsonl starter quality checks
-  incidents.json         scenario descriptions
-  logs.jsonl             app output target
-  audit.jsonl            optional audit log output
+  sample_queries.jsonl   Các request mẫu để test
+  expected_answers.jsonl Các đáp án mong đợi mẫu để kiểm tra chất lượng
+  incidents.json         Mô tả các kịch bản sự cố
+  logs.jsonl             File đích để app ghi log ra
+  audit.jsonl            File log audit đầu ra (tùy chọn)
 
 docs/
-  blueprint-template.md  team submission template
-  alerts.md              runbook + alert worksheet
-  dashboard-spec.md      6-panel dashboard checklist
-  grading-evidence.md    evidence collection sheet
-  mock-debug-qa.md       oral/written debugging questions
+  blueprint-template.md  Mẫu nộp bài của nhóm
+  alerts.md              Runbook + phiếu bài tập về cảnh báo
+  dashboard-spec.md      Checklist dashboard 6 biểu đồ
+  grading-evidence.md    Phiếu thu thập minh chứng chấm điểm
+  mock-debug-qa.md       Các câu hỏi debug mô phỏng để hỏi đáp hoặc làm bài viết
 ```
 
 ## Team role suggestion
