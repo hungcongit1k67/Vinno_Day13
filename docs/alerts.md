@@ -38,3 +38,16 @@
   - shorten prompts
   - route easy requests to cheaper model
   - apply prompt cache
+
+## 4. Low quality score
+- Severity: P3
+- Trigger: `quality_score_avg < 0.75 for 15m`
+- Impact: responses fall below acceptable quality threshold
+- First checks:
+  1. Filter traces by low `quality_score` in Langfuse
+  2. Compare retrieved docs vs question relevance
+  3. Check if RAG corpus has missing or stale documents
+- Mitigation:
+  - refresh RAG corpus
+  - expand retrieval top-k
+  - add fallback answer template for unmatched queries
