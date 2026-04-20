@@ -51,42 +51,42 @@ python scripts/validate_logs.py
 ## Repo map
 
 ```text
-app/
-  main.py                Ứng dụng FastAPI chính
-  agent.py               Pipeline agent cốt lõi
-  logging_config.py      Cấu hình structlog
-  middleware.py          Middleware correlation ID
-  pii.py                 Các hàm hỗ trợ che/lọc dữ liệu nhạy cảm
-  tracing.py             Các hàm hỗ trợ Langfuse
-  schemas.py             Các model cho request/response/log
-  metrics.py             Các hàm hỗ trợ metrics lưu trong bộ nhớ
-  incidents.py           Các công tắc bật/tắt lỗi được chèn vào để mô phỏng sự cố
-  mock_llm.py            LLM giả lập có đầu ra xác định trước
-  mock_rag.py            Bộ truy xuất giả lập có đầu ra xác định trước
+app/                     Là nơi chạy hệ thống và gắn observability vào hệ thống.
+  main.py                FastAPI app chính, khai báo API và gắn middleware/logging
+  agent.py               Pipeline xử lý chính của agent: RAG -> LLM -> kết quả
+  logging_config.py      Cấu hình structlog và định dạng log JSON
+  middleware.py          Gắn correlation ID cho từng request và thêm vào response
+  pii.py                 Hàm che/lọc dữ liệu nhạy cảm như email, SĐT, CCCD
+  tracing.py             Hàm hỗ trợ tracing với Langfuse
+  schemas.py             Định nghĩa model cho request, response và log
+  metrics.py             Thu thập metrics đơn giản như latency, error, cost, token
+  incidents.py           Bật/tắt các sự cố giả lập để test hệ thống
+  mock_llm.py            LLM giả lập để test mà không cần gọi model thật
+  mock_rag.py            RAG giả lập để test retrieval và lỗi liên quan
 
-config/
-  slo.yaml               Các SLO mẫu khởi đầu
-  alert_rules.yaml       Các rule cảnh báo mẫu khởi đầu
-  logging_schema.json    Schema log mong đợi
+config/                  Là nơi định nghĩa tiêu chuẩn cần đạt: log schema, SLO, alert rules.
+  slo.yaml               Mẫu SLO để theo dõi mục tiêu dịch vụ
+  alert_rules.yaml       Mẫu rule cảnh báo khi hệ thống có vấn đề
+  logging_schema.json    Schema chuẩn mà log của app cần tuân theo
 
-scripts/
-  load_test.py           Tạo request để test tải
-  inject_incident.py     Bật/tắt các tình huống sự cố mô phỏng
-  validate_logs.py       Kiểm tra schema của log
+scripts/                 Là bộ công cụ để sinh traffic, gây sự cố, tự chấm tiến độ.
+  load_test.py           Tạo request hàng loạt để test tải và sinh log/metrics
+  inject_incident.py     Bật/tắt các kịch bản sự cố mô phỏng
+  validate_logs.py       Kiểm tra log có đúng schema, đủ field, có lộ PII hay không
 
-data/
-  sample_queries.jsonl   Các request mẫu để test
-  expected_answers.jsonl Các đáp án mong đợi mẫu để kiểm tra chất lượng
-  incidents.json         Mô tả các kịch bản sự cố
-  logs.jsonl             File đích để app ghi log ra
-  audit.jsonl            File log audit đầu ra (tùy chọn)
+data/                    Là dữ liệu seed và output phục vụ test/đánh giá.
+  sample_queries.jsonl   Dữ liệu request mẫu để test app
+  expected_answers.jsonl Dữ liệu đáp án mẫu để kiểm tra chất lượng output
+  incidents.json         Mô tả các kịch bản sự cố dùng trong bài lab
+  logs.jsonl             Nơi app ghi log đầu ra
+  audit.jsonl            Nơi ghi audit log nếu có dùng
 
-docs/
-  blueprint-template.md  Mẫu nộp bài của nhóm
-  alerts.md              Runbook + phiếu bài tập về cảnh báo
-  dashboard-spec.md      Checklist dashboard 6 biểu đồ
-  grading-evidence.md    Phiếu thu thập minh chứng chấm điểm
-  mock-debug-qa.md       Các câu hỏi debug mô phỏng để hỏi đáp hoặc làm bài viết
+docs/                    Là nơi biến kết quả kỹ thuật thành dashboard, runbook, evidence và báo cáo nộp bài.
+  blueprint-template.md  Mẫu báo cáo/biểu mẫu nộp bài của nhóm
+  alerts.md              Hướng dẫn xử lý cảnh báo và runbook
+  dashboard-spec.md      Checklist dashboard 6 biểu đồ cần có
+  grading-evidence.md    Danh sách minh chứng cần thu thập để chấm điểm
+  mock-debug-qa.md       Câu hỏi mô phỏng để luyện debug và giải thích sự cố
 ```
 
 ## Team role suggestion
